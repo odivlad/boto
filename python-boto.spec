@@ -63,10 +63,10 @@ BuildRequires:  python-mock
 BuildRequires:  python-nose
 BuildRequires:  python-requests
 %if %{with python3}
-BuildRequires:  python%{python3_pkgversion}-httpretty
-BuildRequires:  python%{python3_pkgversion}-mock
-BuildRequires:  python%{python3_pkgversion}-nose
-BuildRequires:  python%{python3_pkgversion}-requests
+BuildRequires:  python36-httpretty
+BuildRequires:  python36-mock
+BuildRequires:  python36-nose
+BuildRequires:  python36-requests
 %endif  # with python3
 %endif  # with unittests
 
@@ -94,7 +94,8 @@ Obsoletes:      python-boto <= 1441065600:2.46.1-CROC14%{?dist}
 %package -n python%{python3_pkgversion}-%{pkgname}
 Summary:        A simple, lightweight interface to Amazon Web Services
 
-Requires:       python%{python3_pkgversion}-requests
+Requires:       python36-requests
+%{?python_provide:%python_provide python3-%{pkgname}}
 
 
 %description -n python%{python3_pkgversion}-%{pkgname}
